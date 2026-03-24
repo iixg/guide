@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+                                                       
+<meta charset="UTF-8" />
+<title>B-KEY Pro – Feature Videos</title>
+
+                                    <!-- bkeypro manifest & favicons -->
+                                    <link rel="manifest" href="/bkeypro/resources/favicons/manifest.json">
+                                        <link rel="apple-touch-icon" sizes="180x180" href="/bkeypro/resources/favicons/apple-touch-icon.png">
+                                            <link rel="icon" type="image/png" sizes="32x32" href="/bkeypro/resources/favicons/favicon-32x32.png">
+                                                <link rel="icon" type="image/png" sizes="16x16" href="/bkeypro/resources/favicons/favicon-16x16.png">
+                                                    <link rel="mask-icon" href="/bkeypro/resources/favicons/safari-pinned-tab.svg" color="#5bbad5">
+                                                        <link rel="shortcut icon" href="/bkeypro/resources/favicons/favicon.ico">
+                                                            <meta name="msapplication-config" content="/bkeypro/resources/favicons/browserconfig.xml">
+                                                                <meta name="theme-color" content="#ffffff">
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1,
+               maximum-scale=1,
+               user-scalable=no,
+               viewport-fit=cover" />
+
+<style>
+
+/* ========= Color Scheme ========= */
+:root {
+    --bg: #ffffff;
+    --card: #f5f6f8;
+    --text: #111111;
+    --sub: #666666;
+    --border: #e5e7eb;
+    --header-bg: rgba(255,255,255,0.85);
+    --divider: var(--border);
+    --safe-top: env(safe-area-inset-top);
+    --safe-bottom: env(safe-area-inset-bottom);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0f1115;
+        --card: #171a22;
+        --text: #ffffff;
+        --sub: #9aa0af;
+        --border: #2a2f3a;
+        --header-bg: rgba(15,17,21,0.85);
+    }
+}
+
+/* ========= Base ========= */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 80px;
+}
+
+/* ========= Header ========= */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 56px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--divider);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-logo {
+    width: 28px;
+    height: 28px;
+}
+
+.app-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ========= Grid ========= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 24px;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========= Card ========= */
+.card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.card:active {
+    transform: scale(0.96);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* ========= Cover ========= */
+.cover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #000;
+}
+
+.cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* ========= Play Button ========= */
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.2s ease;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.3),
+        inset 0 1px 1px rgba(255,255,255,0.4);
+}
+
+.play-button:active {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.play-button svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+/* ========= Info ========= */
+.info {
+    padding: 16px 4px 8px;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.desc {
+    font-size: 12px;
+    color: var(--sub);
+}
+
+/* ========= Player Overlay ========= */
+.player-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.96);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--safe-top);
+    padding-bottom: var(--safe-bottom);
+    z-index: 999;
+}
+
+.player-overlay.active {
+    display: flex;
+}
+
+.player-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.player-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+}
+
+/* ========= Close Button ========= */
+.close-btn {
+    position: absolute;
+    top: calc(env(safe-area-inset-top) + 54px);
+    left: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0,0,0,0.25);
+    color: #fff;
+    font-size: 18px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+        /* 新增：确保按钮在最上层 */
+    z-index: 1000;
+    /* 新增：确保点击生效 */
+    pointer-events: auto;
+    /* 新增：鼠标悬浮样式，提示可点击 */
+    cursor: pointer;
+}
+
+/* ========= Footer ========= */
+footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--divider);
+    z-index: 90;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.footer-container a {
+    color: var(--sub);
+    text-decoration: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="app-header">
+    <div class="header-left">
+        <a href="/bkeypro/index.html">
+            <img src="/bkeypro/resources/img/logo-white.png" class="app-logo">
+        </a>
+        <span class="app-title">B-KEY Pro – How-To Videos</span>
+    </div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<footer>
+    <div class="footer-container">
+        <a href="mailto:bkeyfeedback@gmail.com">FEEDBACK</a>
+        <div>Copyright © 2025 by B-KEY Pro. All rights reserved.</div>
+        <a href="https://beian.miit.gov.cn/">沪ICP备2023036321号</a>
+    </div>
+</footer>
+
+<div class="player-overlay" id="overlay">
+    <div class="player-container">
+        <button class="close-btn" id="closeBtn">×</button>
+        <video id="player" controls playsinline webkit-playsinline preload="metadata"
+       x-webkit-airplay="allow"></video>
+    </div>
+</div>
+
+<script>
+
+const videos = [
+                {
+                    id: "add_key",
+                    title: "Add Tesla Key to B-KEY Pro",
+                    cover: "covers/add_key.jpg",
+                    video: "videos/add_key/out_add_key.m3u8"
+                },
+                {
+                    id: "change_color",
+                    title: "Customize vehicle body color",
+                    cover: "covers/change_color.jpg",
+                    video: "videos/change_color.mp4"
+                },
+                {
+                    id: "landscape_dashboard_mode",
+                    title: "Landscape Dashboard Mode",
+                    cover: "covers/landscape_dashboard_mode.jpg",
+                    video: "videos/landscape_dashboard_mode.mp4"
+                },
+                {
+                    id: "add_widget",
+                    title: "Add Widget to Home Screen",
+                    cover: "covers/add_widget.jpg",
+                    video: "videos/add_widget.mp4"
+                },
+                {
+                    id: "add_lock_screen",
+                    title: "Add to Lock Screen",
+                    cover: "covers/add_lock_screen.jpg",
+                    video: "videos/add_lock_screen.mp4"
+                },
+                 {
+                    id: "add_control_center",
+                    title: "Add control commands to Control Center",
+                    cover: "covers/add_control_center.jpg",
+                    video: "videos/add_control_center.mp4"
+                },
+                {
+                    id: "custom_quick_action",
+                    title: "Customize Quick Actions",
+                    cover: "covers/custom_quick_action.jpg",
+                    video: "videos/custom_quick_action.mp4"
+                }
+];
+
+const grid = document.getElementById("grid");
+const overlay = document.getElementById("overlay");
+const player = document.getElementById("player");
+const closeBtn = document.getElementById("closeBtn");
+
+function openVideo(v) {
+    overlay.classList.add("active");
+
+    if (player.canPlayType('application/vnd.apple.mpegurl')) {
+        // ✅ iOS / Safari（原生支持 HLS）
+        player.src = v.video;
+    } else {
+        // ❗ 其他浏览器（需要 hls.js）
+        if (window.Hls) {
+            const hls = new Hls();
+            hls.loadSource(v.video);
+            hls.attachMedia(player);
+        } else {
+            alert("Your browser does not support HLS");
+            return;
+        }
+    }
+    player.play();
+}
+
+function closeVideo() {
+    player.pause();
+    player.removeAttribute("src");
+    player.load();
+    overlay.classList.remove("active");
+}
+
+closeBtn.onclick = closeVideo;
+overlay.onclick = e => {
+    if (e.target === overlay) closeVideo();
+};
+
+videos.forEach(v => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+        <div class="cover">
+            <img src="${v.cover}">
+            <div class="play-button">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="6,4 20,12 6,20"></polygon>
+                </svg>
+            </div>
+        </div>
+        <div class="info">
+            <div class="title">${v.title}</div>
+        </div>
+    `;
+    card.onclick = () => openVideo(v);
+    grid.appendChild(card);
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</body>
+</html>
